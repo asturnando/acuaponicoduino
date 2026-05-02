@@ -16,11 +16,11 @@ Vacío. Se irán añadiendo según haga falta.
 
 ## Scripts previstos
 
-| Script | Propósito |
-|--------|-----------|
-| `bootstrap-dev.sh` | Setup completo de entorno de desarrollo (deps, hooks, docker compose) |
-| `release.sh` | Bump version, tag, push, dispara workflow de release |
-| `provision-device.py` | Inyecta cert único en una unidad nueva (M2.18 — fábrica) |
-| `gen-firmware-key.sh` | Genera par RSA-2048 para firmar OTA |
-| `seed-db.py` | Pobla DB de dev con org, user y device de prueba |
-| `import-tfg-data.py` | (Opcional) Migra logs históricos del TFG v1 a TimescaleDB |
+| Script                | Propósito                                                             |
+| --------------------- | --------------------------------------------------------------------- |
+| `bootstrap-dev.sh`    | Setup completo de entorno de desarrollo (deps, hooks, docker compose) |
+| `release.sh`          | Bump version, tag, push, dispara workflow de release                  |
+| `provision-device.py` | Inyecta cert único en una unidad nueva (M2.18 — fábrica)              |
+| `gen-firmware-key.sh` | Genera par RSA-2048 para firmar OTA                                   |
+| `seed-db.py`          | Pobla DB de dev con org, user y device de prueba                      |
+| `import-tfg-data.py`  | (Opcional) Migra logs históricos del TFG v1 a TimescaleDB             |

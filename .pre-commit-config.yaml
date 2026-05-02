@@ -65,8 +65,8 @@ repos:
     rev: v4.0.0-alpha.8
     hooks:
       - id: prettier
-        types_or: [javascript, jsx, ts, tsx, json, yaml, markdown, css, scss]
-        exclude: ^(docs/ARCHITECTURE\.md|docs/ROADMAP\.md|CHANGELOG\.md)$
+        types_or: [javascript, jsx, ts, tsx, json, yaml, css, scss]
+        # Markdown excluido vía .prettierignore (prettier rompe sintaxis mkdocs-material)
 
   - repo: https://github.com/pre-commit/mirrors-eslint
     rev: v9.17.0
@@ -84,7 +84,9 @@ repos:
     rev: v0.43.0
     hooks:
       - id: markdownlint
-        args: [--disable, MD013, MD033, MD041, "--"]
+        # Reglas configuradas en .markdownlint.json (la mayoría de cosméticas
+        # están off porque chocan con admonitions/grid cards de mkdocs-material).
+        exclude: ^docs/adr/template\.md$
 
   # ---------------------------------------------------------------
   # Shell

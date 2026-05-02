@@ -25,21 +25,16 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          fetch-depth: 0   # necesario para git-revision-date-localized plugin
+          fetch-depth: 0 # necesario para git-revision-date-localized plugin
 
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
           cache: pip
+          cache-dependency-path: docs/requirements.txt
 
       - name: Install mkdocs-material
-        run: |
-          pip install \
-            mkdocs-material \
-            mkdocs-git-revision-date-localized-plugin \
-            mkdocs-glightbox \
-            mkdocs-minify-plugin \
-            pymdown-extensions
+        run: pip install -r docs/requirements.txt
 
       - name: Build
         run: mkdocs build --strict

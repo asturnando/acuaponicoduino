@@ -27,18 +27,18 @@ backend/
 
 ## Stack
 
-| Pieza | Tecnología |
-|-------|-----------|
-| Framework | FastAPI |
-| ORM | SQLAlchemy 2.0 |
-| Migraciones | Alembic |
-| Validación | Pydantic v2 |
-| DB | PostgreSQL 16 + TimescaleDB |
-| Cache / queue | Redis 7 |
-| Workers | Arq |
-| Auth | JWT (15min access + 30d refresh con rotation) |
-| Passwords | Argon2id |
-| Broker | Mosquitto 2 (TLS, mTLS para devices) |
+| Pieza         | Tecnología                                    |
+| ------------- | --------------------------------------------- |
+| Framework     | FastAPI                                       |
+| ORM           | SQLAlchemy 2.0                                |
+| Migraciones   | Alembic                                       |
+| Validación    | Pydantic v2                                   |
+| DB            | PostgreSQL 16 + TimescaleDB                   |
+| Cache / queue | Redis 7                                       |
+| Workers       | Arq                                           |
+| Auth          | JWT (15min access + 30d refresh con rotation) |
+| Passwords     | Argon2id                                      |
+| Broker        | Mosquitto 2 (TLS, mTLS para devices)          |
 
 ## Run local
 

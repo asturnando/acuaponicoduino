@@ -46,9 +46,9 @@ hardware/
 
 ## Conectores M12 codificados
 
-| Código | Tipo de sensor |
-|--------|----------------|
+| Código | Tipo de sensor              |
+| ------ | --------------------------- |
 | A      | sondas analógicas (pH, TDS) |
-| B      | temperatura (DS18B20) |
-| C      | caudal (FS400A) |
-| D      | nivel (FS-IR02) |
+| B      | temperatura (DS18B20)       |
+| C      | caudal (FS400A)             |
+| D      | nivel (FS-IR02)             |

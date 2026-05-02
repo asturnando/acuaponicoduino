@@ -41,6 +41,20 @@ updates:
     commit-message:
       prefix: chore(ai)
 
+  # Documentación (mkdocs-material)
+  - package-ecosystem: pip
+    directory: /docs
+    schedule:
+      interval: weekly
+      day: monday
+    open-pull-requests-limit: 5
+    labels: ["dependencies", "docs"]
+    commit-message:
+      prefix: chore(docs)
+    groups:
+      mkdocs-stack:
+        patterns: ["mkdocs*", "pymdown-extensions"]
+
   # Web (Node)
   - package-ecosystem: npm
     directory: /web
@@ -55,7 +69,8 @@ updates:
       next-stack:
         patterns: ["next", "react", "react-dom", "@next/*"]
       tailwind-stack:
-        patterns: ["tailwindcss*", "@tailwindcss/*", "postcss*", "autoprefixer*"]
+        patterns:
+          ["tailwindcss*", "@tailwindcss/*", "postcss*", "autoprefixer*"]
       dev-deps:
         dependency-type: "development"
 

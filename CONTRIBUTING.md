@@ -13,14 +13,14 @@
 
 1. Asegúrate de tener un issue abierto para lo que vayas a tocar (excepto fixes triviales).
 2. Crea una rama con prefijo:
-   - `feat/`  nueva funcionalidad
-   - `fix/`   corrección de bug
-   - `docs/`  solo documentación
-   - `hw/`    hardware (KiCad, BOM, carcasa)
-   - `fw/`    firmware
+   - `feat/` nueva funcionalidad
+   - `fix/` corrección de bug
+   - `docs/` solo documentación
+   - `hw/` hardware (KiCad, BOM, carcasa)
+   - `fw/` firmware
    - `chore/` mantenimiento, deps, CI
    - `refactor/` refactor sin cambio funcional
-   - `test/`  añadir o mejorar tests
+   - `test/` añadir o mejorar tests
 3. Trabaja, commitea siguiendo Conventional Commits (ver abajo).
 4. Push, abre PR contra `main`.
 5. CI debe estar verde + al menos 1 review (si hay reviewers).

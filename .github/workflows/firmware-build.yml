@@ -65,7 +65,7 @@ jobs:
       - name: Run unit tests
         if: steps.check.outputs.no_pio != 'true'
         working-directory: firmware
-        run: pio test -e native || true   # cuando exista entorno native, quitar `|| true`
+        run: pio test -e native || true # cuando exista entorno native, quitar `|| true`
 
       - name: Upload firmware artifact
         if: steps.check.outputs.no_pio != 'true'

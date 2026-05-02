@@ -26,15 +26,15 @@ mobile/
 
 ## Stack clave
 
-| Pieza | Tecnología |
-|-------|-----------|
-| Framework | Expo SDK 52+ |
-| Navigation | Expo Router |
-| Estilos | NativeWind (Tailwind para RN) |
-| BLE | `react-native-ble-plx` |
-| Push | Expo Notifications + FCM/APNs |
-| Storage seguro | `expo-secure-store` (token) |
-| OTA app | EAS Update |
+| Pieza          | Tecnología                    |
+| -------------- | ----------------------------- |
+| Framework      | Expo SDK 52+                  |
+| Navigation     | Expo Router                   |
+| Estilos        | NativeWind (Tailwind para RN) |
+| BLE            | `react-native-ble-plx`        |
+| Push           | Expo Notifications + FCM/APNs |
+| Storage seguro | `expo-secure-store` (token)   |
+| OTA app        | EAS Update                    |
 
 ## Run local
 

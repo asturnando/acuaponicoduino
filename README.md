@@ -24,10 +24,10 @@ Y reemplaza:
 
 ## Documentos clave
 
-| Doc | Propósito |
-|-----|-----------|
-| [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md) | Decisiones cerradas, pinout, topics, BD, flujos. Si esto cambia, todo lo demás se ajusta. |
-| [`docs/ROADMAP.md`](docs/ROADMAP.md) | Checklist exhaustiva de todas las tareas, agrupadas por fase. La fuente de verdad del progreso. |
+| Doc                                            | Propósito                                                                                       |
+| ---------------------------------------------- | ----------------------------------------------------------------------------------------------- |
+| [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md) | Decisiones cerradas, pinout, topics, BD, flujos. Si esto cambia, todo lo demás se ajusta.       |
+| [`docs/ROADMAP.md`](docs/ROADMAP.md)           | Checklist exhaustiva de todas las tareas, agrupadas por fase. La fuente de verdad del progreso. |
 
 ## Filosofía
 

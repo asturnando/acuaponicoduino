@@ -4,9 +4,9 @@
 
 Mientras el proyecto esté en desarrollo activo (pre-1.0 estable), solo la última versión recibe parches de seguridad.
 
-| Versión | Soporte |
-|---------|---------|
-| 2.x     | ✅      |
+| Versión            | Soporte      |
+| ------------------ | ------------ |
+| 2.x                | ✅           |
 | 1.x (TFG original) | ❌ archivado |
 
 ## Reportar una vulnerabilidad
