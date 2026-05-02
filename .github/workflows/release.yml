@@ -1,0 +1,65 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - "v*.*.*"
+  workflow_dispatch:
+    inputs:
+      version:
+        description: "Versión a publicar (sin la `v`, e.g. 2.0.1)"
+        required: true
+        type: string
+
+concurrency:
+  group: release
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    name: Crear GitHub Release
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Determinar versión
+        id: ver
+        run: |
+          if [ -n "${{ inputs.version }}" ]; then
+            echo "tag=v${{ inputs.version }}" >> "$GITHUB_OUTPUT"
+          else
+            echo "tag=${GITHUB_REF#refs/tags/}" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Extraer notas del CHANGELOG
+        id: notes
+        run: |
+          # Busca el bloque entre la sección [Unreleased] o [vX.Y.Z] y la siguiente.
+          # Si CHANGELOG aún no tiene sección versionada, usa [Unreleased].
+          ver="${{ steps.ver.outputs.tag }}"
+          ver_strip="${ver#v}"
+          if grep -q "## \[$ver_strip\]" CHANGELOG.md; then
+            awk "/## \\[$ver_strip\\]/{flag=1; next} /^## \\[/{flag=0} flag" CHANGELOG.md > /tmp/notes.md
+          else
+            awk '/## \[Unreleased\]/{flag=1; next} /^## \[/{flag=0} flag' CHANGELOG.md > /tmp/notes.md
+          fi
+          {
+            echo "body<<EOF"
+            cat /tmp/notes.md
+            echo "EOF"
+          } >> "$GITHUB_OUTPUT"
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ steps.ver.outputs.tag }}
+          name: ${{ steps.ver.outputs.tag }}
+          body: ${{ steps.notes.outputs.body }}
+          draft: false
+          prerelease: ${{ contains(steps.ver.outputs.tag, '-rc') || contains(steps.ver.outputs.tag, '-beta') }}
+          generate_release_notes: true

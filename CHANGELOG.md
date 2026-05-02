@@ -15,10 +15,11 @@ Versionado siguiendo [Semantic Versioning](https://semver.org/lang/es/).
 - Templates de issue (bug, feature, hardware) y de PR
 - Pre-commit config con ruff, prettier, mypy, eslint, gitleaks
 - Estructura de monorepo: `firmware/`, `hardware/`, `backend/`, `web/`, `mobile/`, `infra/`, `ai/`, `scripts/`
-- Workflows de GitHub Actions (skeleton): ci, firmware-build, backend-test, web-build, docs-deploy, release
-- Dependabot configurado para Python, Node y GitHub Actions
-- mkdocs-material configurado, despliegue automático a GitHub Pages
-- ADRs 001-010 documentando decisiones arquitecturales cerradas
+- Workflows de GitHub Actions: `ci.yml` (paths-filter + pre-commit + gitleaks), `firmware-build.yml`, `backend-test.yml` (con servicios timescaledb + redis), `web-build.yml`, `docs-deploy.yml` (mkdocs → Pages), `release.yml` (extrae notas del CHANGELOG)
+- Dependabot configurado para `pip` (backend, ai), `npm` (web, mobile), `docker` y `github-actions`, con grupos lógicos por stack
+- `mkdocs.yml` con tema Material, plugins (search, git-revision-date, glightbox, minify) y extensiones pymdownx (superfences/mermaid, tabbed, tasklist)
+- Estructura `docs/` con secciones por área: hardware, firmware, backend, web, mobile, manual-usuario, manual-instalacion, api, troubleshooting, adr
+- ADRs 001-010 documentando decisiones arquitecturales cerradas (MCU, framework firmware, backend, BD, web, mobile, broker MQTT, monorepo, licencia, hosting)
 
 ### Changed
 - ESP32-S3: variante final **N8R2** (descartado N16R8 por colisión PSRAM octal con GPIO 33-37)

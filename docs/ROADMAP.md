@@ -49,23 +49,23 @@
 
 ## Fase 0.2 — CI/CD baseline
 
-- [ ] GitHub Actions: workflow `ci.yml` (skeleton, no jobs aún)
-- [ ] Workflow `firmware-build.yml` (placeholder, se rellena en M2)
-- [ ] Workflow `backend-test.yml` (placeholder)
-- [ ] Workflow `web-build.yml` (placeholder)
-- [ ] Workflow `docs-deploy.yml` para mkdocs → GitHub Pages
-- [ ] Workflow `release.yml` con semantic-release (auto-version en tags)
-- [ ] Configurar Dependabot (`dependabot.yml`) para Python, Node, GitHub Actions
-- [ ] Activar CodeQL (security scanning)
-- [ ] Activar secret scanning + push protection
+- [x] GitHub Actions: workflow `ci.yml` (paths-filter, pre-commit, gitleaks, summary)
+- [x] Workflow `firmware-build.yml` (skeleton con auto-skip si `firmware/` vacío)
+- [x] Workflow `backend-test.yml` (skeleton con servicios postgres+redis, auto-skip si `backend/` vacío)
+- [x] Workflow `web-build.yml` (skeleton con pnpm, auto-skip si `web/` vacío)
+- [x] Workflow `docs-deploy.yml` para mkdocs → GitHub Pages
+- [x] Workflow `release.yml` (extrae notas del CHANGELOG, crea GitHub Release)
+- [x] Configurar Dependabot (`dependabot.yml`) para Python, Node, GitHub Actions, Docker
+- [ ] Activar CodeQL (security scanning) _(GitHub UI — `ONBOARDING_GITHUB.md` §4)_
+- [ ] Activar secret scanning + push protection _(GitHub UI — `ONBOARDING_GITHUB.md` §4)_
 
 ## Fase 0.3 — Documentación viva
 
-- [ ] `mkdocs.yml` con tema material
-- [ ] Estructura `docs/`: arquitectura, hardware, firmware, backend, web, mobile, manual-usuario, manual-instalacion, api, troubleshooting
-- [ ] Diagramas en Mermaid embebidos en MD (reproducibles)
-- [ ] Configurar deploy automático a GitHub Pages
-- [ ] Dominio personalizado opcional (`docs.acuaponicoduino.com`)
+- [x] `mkdocs.yml` con tema material
+- [x] Estructura `docs/`: arquitectura, hardware, firmware, backend, web, mobile, manual-usuario, manual-instalacion, api, troubleshooting
+- [x] Mermaid habilitado vía `pymdownx.superfences` (diagramas concretos se añaden cuando existan)
+- [x] Configurar deploy automático a GitHub Pages
+- [ ] Dominio personalizado opcional (`docs.acuaponicoduino.com`) _(post-M6)_
 
 ## Fase 0.4 — Project management
 
@@ -77,17 +77,17 @@
 
 ## Fase 0.5 — Decisiones de arquitectura escritas (ADRs)
 
-- [ ] Crear `docs/adr/` con plantilla
-- [ ] ADR-001: ESP32-S3 vs Mega+ESP8266
-- [ ] ADR-002: ESP-IDF vs Arduino framework
-- [ ] ADR-003: FastAPI vs NestJS
-- [ ] ADR-004: PostgreSQL+TimescaleDB vs InfluxDB vs Mongo
-- [ ] ADR-005: Next.js vs Remix vs SvelteKit
-- [ ] ADR-006: React Native+Expo vs Flutter
-- [ ] ADR-007: Mosquitto vs EMQX vs HiveMQ
-- [ ] ADR-008: Monorepo vs poly-repo
-- [ ] ADR-009: Licencia
-- [ ] ADR-010: Hosting (Hetzner vs OVH vs AWS)
+- [x] Crear `docs/adr/` con plantilla
+- [x] ADR-001: ESP32-S3 vs Mega+ESP8266
+- [x] ADR-002: ESP-IDF vs Arduino framework
+- [x] ADR-003: FastAPI vs NestJS
+- [x] ADR-004: PostgreSQL+TimescaleDB vs InfluxDB vs Mongo
+- [x] ADR-005: Next.js vs Remix vs SvelteKit
+- [x] ADR-006: React Native+Expo vs Flutter
+- [x] ADR-007: Mosquitto vs EMQX vs HiveMQ
+- [x] ADR-008: Monorepo vs poly-repo
+- [x] ADR-009: Licencia (AGPLv3)
+- [x] ADR-010: Hosting (Hetzner Cloud)
 
 **Entregable de M0**: repositorio listo, CI verde aunque sin código real, documentación accesible online, project board con todas las tareas, ADRs escritas.
 

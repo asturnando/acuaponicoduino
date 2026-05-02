@@ -1,0 +1,141 @@
+site_name: AcuaponicDuino v2.0
+site_description: Sistema commercial-grade de control y monitorización para acuaponía
+site_author: Fernando Suárez Rodríguez
+site_url: https://asturnando.github.io/acuaponicoduino/
+
+repo_name: asturnando/acuaponicoduino
+repo_url: https://github.com/asturnando/acuaponicoduino
+edit_uri: edit/main/docs/
+
+copyright: >
+  Copyright &copy; 2026 Fernando Suárez Rodríguez —
+  <a href="https://github.com/asturnando/acuaponicoduino/blob/main/LICENSE">AGPLv3</a>
+
+docs_dir: docs
+
+theme:
+  name: material
+  language: es
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: teal
+      accent: teal
+      toggle:
+        icon: material/brightness-7
+        name: Cambiar a modo oscuro
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: teal
+      accent: teal
+      toggle:
+        icon: material/brightness-4
+        name: Cambiar a modo claro
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.expand
+    - navigation.top
+    - navigation.indexes
+    - navigation.tracking
+    - toc.follow
+    - search.suggest
+    - search.highlight
+    - search.share
+    - content.code.copy
+    - content.code.annotate
+    - content.tabs.link
+    - content.action.edit
+    - content.action.view
+  icon:
+    repo: fontawesome/brands/github
+
+plugins:
+  - search:
+      lang: [es, en]
+  - git-revision-date-localized:
+      enable_creation_date: true
+      type: timeago
+      locale: es
+  - glightbox
+  - minify:
+      minify_html: true
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - def_list
+  - footnotes
+  - md_in_html
+  - tables
+  - toc:
+      permalink: true
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.betterem
+  - pymdownx.caret
+  - pymdownx.details
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.keys
+  - pymdownx.mark
+  - pymdownx.smartsymbols
+  - pymdownx.snippets
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.tilde
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/asturnando/acuaponicoduino
+  status:
+    new: Recién añadido
+    deprecated: Obsoleto
+
+nav:
+  - Inicio: index.md
+  - Arquitectura: ARCHITECTURE.md
+  - Roadmap: ROADMAP.md
+  - Onboarding GitHub: ONBOARDING_GITHUB.md
+  - Hardware:
+      - hardware/index.md
+  - Firmware:
+      - firmware/index.md
+  - Backend:
+      - backend/index.md
+  - Web:
+      - web/index.md
+  - Mobile:
+      - mobile/index.md
+  - Manuales:
+      - Usuario: manual-usuario/index.md
+      - Instalación: manual-instalacion/index.md
+  - API: api/index.md
+  - Troubleshooting: troubleshooting/index.md
+  - ADRs:
+      - adr/index.md
+      - Plantilla: adr/template.md
+      - 0001 ESP32-S3 vs Mega+ESP8266: adr/0001-esp32s3-vs-mega-esp8266.md
+      - 0002 ESP-IDF vs Arduino: adr/0002-esp-idf-vs-arduino.md
+      - 0003 FastAPI vs NestJS: adr/0003-fastapi-vs-nestjs.md
+      - 0004 PostgreSQL+TimescaleDB vs InfluxDB vs Mongo: adr/0004-postgres-timescale-vs-influx-mongo.md
+      - 0005 Next.js vs Remix vs SvelteKit: adr/0005-nextjs-vs-remix-vs-sveltekit.md
+      - 0006 React Native+Expo vs Flutter: adr/0006-react-native-expo-vs-flutter.md
+      - 0007 Mosquitto vs EMQX vs HiveMQ: adr/0007-mosquitto-vs-emqx-vs-hivemq.md
+      - 0008 Monorepo vs poly-repo: adr/0008-monorepo-vs-polyrepo.md
+      - 0009 Licencia AGPLv3: adr/0009-licencia-agplv3.md
+      - 0010 Hosting Hetzner: adr/0010-hosting-hetzner.md

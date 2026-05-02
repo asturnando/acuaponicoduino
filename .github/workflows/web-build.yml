@@ -1,0 +1,73 @@
+name: Web build
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "web/**"
+      - ".github/workflows/web-build.yml"
+  pull_request:
+    branches: [main]
+    paths:
+      - "web/**"
+      - ".github/workflows/web-build.yml"
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    name: Next.js build + lint + test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Skip si web/ vacío
+        id: check
+        run: |
+          if [ ! -f web/package.json ]; then
+            echo "empty=true" >> "$GITHUB_OUTPUT"
+            echo "::notice::web/package.json no existe todavía. Se rellena en M4."
+          fi
+
+      - uses: pnpm/action-setup@v4
+        if: steps.check.outputs.empty != 'true'
+        with:
+          version: 9
+
+      - uses: actions/setup-node@v4
+        if: steps.check.outputs.empty != 'true'
+        with:
+          node-version: "22"
+          cache: pnpm
+          cache-dependency-path: web/pnpm-lock.yaml
+
+      - name: Install
+        if: steps.check.outputs.empty != 'true'
+        working-directory: web
+        run: pnpm install --frozen-lockfile
+
+      - name: Lint
+        if: steps.check.outputs.empty != 'true'
+        working-directory: web
+        run: pnpm lint
+
+      - name: Type-check
+        if: steps.check.outputs.empty != 'true'
+        working-directory: web
+        run: pnpm tsc --noEmit
+
+      - name: Unit tests
+        if: steps.check.outputs.empty != 'true'
+        working-directory: web
+        run: pnpm test --run
+
+      - name: Build
+        if: steps.check.outputs.empty != 'true'
+        working-directory: web
+        run: pnpm build

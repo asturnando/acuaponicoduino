@@ -1,0 +1,85 @@
+version: 2
+
+updates:
+  # GitHub Actions usadas en workflows
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: weekly
+      day: monday
+    open-pull-requests-limit: 5
+    labels: ["dependencies", "ci"]
+    commit-message:
+      prefix: ci
+
+  # Backend (Python)
+  - package-ecosystem: pip
+    directory: /backend
+    schedule:
+      interval: weekly
+      day: monday
+    open-pull-requests-limit: 10
+    labels: ["dependencies", "backend"]
+    commit-message:
+      prefix: chore(backend)
+    groups:
+      fastapi-stack:
+        patterns: ["fastapi*", "starlette*", "uvicorn*", "pydantic*"]
+      sqlalchemy-stack:
+        patterns: ["sqlalchemy*", "alembic*", "psycopg*"]
+      dev-deps:
+        dependency-type: "development"
+
+  # Asistente IA (Python)
+  - package-ecosystem: pip
+    directory: /ai
+    schedule:
+      interval: weekly
+      day: monday
+    open-pull-requests-limit: 5
+    labels: ["dependencies", "ai"]
+    commit-message:
+      prefix: chore(ai)
+
+  # Web (Node)
+  - package-ecosystem: npm
+    directory: /web
+    schedule:
+      interval: weekly
+      day: monday
+    open-pull-requests-limit: 10
+    labels: ["dependencies", "web"]
+    commit-message:
+      prefix: chore(web)
+    groups:
+      next-stack:
+        patterns: ["next", "react", "react-dom", "@next/*"]
+      tailwind-stack:
+        patterns: ["tailwindcss*", "@tailwindcss/*", "postcss*", "autoprefixer*"]
+      dev-deps:
+        dependency-type: "development"
+
+  # Mobile (Node + Expo)
+  - package-ecosystem: npm
+    directory: /mobile
+    schedule:
+      interval: weekly
+      day: monday
+    open-pull-requests-limit: 10
+    labels: ["dependencies", "mobile"]
+    commit-message:
+      prefix: chore(mobile)
+    groups:
+      expo-stack:
+        patterns: ["expo*", "@expo/*", "react-native*"]
+      dev-deps:
+        dependency-type: "development"
+
+  # Docker bases (cuando existan Dockerfiles)
+  - package-ecosystem: docker
+    directory: /backend
+    schedule:
+      interval: weekly
+    labels: ["dependencies", "docker"]
+    commit-message:
+      prefix: chore(docker)

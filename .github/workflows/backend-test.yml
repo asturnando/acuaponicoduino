@@ -1,0 +1,98 @@
+name: Backend test
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "backend/**"
+      - ".github/workflows/backend-test.yml"
+  pull_request:
+    branches: [main]
+    paths:
+      - "backend/**"
+      - ".github/workflows/backend-test.yml"
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    name: pytest
+    runs-on: ubuntu-latest
+
+    services:
+      postgres:
+        image: timescale/timescaledb:latest-pg16
+        env:
+          POSTGRES_USER: test
+          POSTGRES_PASSWORD: test
+          POSTGRES_DB: acuaponicoduino_test
+        ports: ["5432:5432"]
+        options: >-
+          --health-cmd "pg_isready -U test"
+          --health-interval 5s
+          --health-timeout 5s
+          --health-retries 10
+
+      redis:
+        image: redis:7-alpine
+        ports: ["6379:6379"]
+        options: >-
+          --health-cmd "redis-cli ping"
+          --health-interval 5s
+          --health-timeout 5s
+          --health-retries 5
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Skip si backend/ vacío
+        id: check
+        run: |
+          if [ ! -f backend/pyproject.toml ]; then
+            echo "empty=true" >> "$GITHUB_OUTPUT"
+            echo "::notice::backend/pyproject.toml no existe todavía. Se rellena en M3."
+          fi
+
+      - uses: actions/setup-python@v5
+        if: steps.check.outputs.empty != 'true'
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Install uv
+        if: steps.check.outputs.empty != 'true'
+        run: pip install uv
+
+      - name: Sync deps
+        if: steps.check.outputs.empty != 'true'
+        working-directory: backend
+        run: uv sync --frozen
+
+      - name: Run migrations
+        if: steps.check.outputs.empty != 'true'
+        working-directory: backend
+        env:
+          DATABASE_URL: postgresql://test:test@localhost:5432/acuaponicoduino_test
+        run: uv run alembic upgrade head
+
+      - name: Test with coverage
+        if: steps.check.outputs.empty != 'true'
+        working-directory: backend
+        env:
+          DATABASE_URL: postgresql://test:test@localhost:5432/acuaponicoduino_test
+          REDIS_URL: redis://localhost:6379/0
+        run: uv run pytest --cov=app --cov-report=xml --cov-fail-under=70
+
+      - name: Upload coverage
+        if: steps.check.outputs.empty != 'true'
+        uses: actions/upload-artifact@v4
+        with:
+          name: backend-coverage
+          path: backend/coverage.xml
+          if-no-files-found: warn
