@@ -23,7 +23,7 @@ jobs:
     name: Build mkdocs site
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
         with:
           fetch-depth: 0 # necesario para git-revision-date-localized plugin
 
