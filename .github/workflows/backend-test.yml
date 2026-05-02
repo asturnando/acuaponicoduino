@@ -59,7 +59,7 @@ jobs:
             echo "::notice::backend/pyproject.toml no existe todavía. Se rellena en M3."
           fi
 
-      - uses: actions/setup-python@v5
+      - uses: actions/setup-python@v6
         if: steps.check.outputs.empty != 'true'
         with:
           python-version: "3.12"
