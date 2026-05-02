@@ -16,7 +16,9 @@ repos:
       - id: end-of-file-fixer
         exclude: \.(kicad_pcb|kicad_sch|kicad_pro|kicad_sym|kicad_mod)$
       - id: check-yaml
-        args: [--allow-multiple-documents]
+        # --unsafe permite tags Python custom (necesario para mkdocs.yml con
+        # !!python/name:material.extensions.emoji.twemoji)
+        args: [--allow-multiple-documents, --unsafe]
       - id: check-json
       - id: check-toml
       - id: check-merge-conflict

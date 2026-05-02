@@ -23,10 +23,9 @@ jobs:
       fail-fast: false
       matrix:
         include:
-          - language: python
-            build-mode: none
-          - language: javascript-typescript
-            build-mode: none
+          # Python y JavaScript/TypeScript se añaden a la matriz cuando existan
+          # archivos reales (M2 firmware Python tooling, M3 backend, M4 web/mobile).
+          # Por ahora CodeQL solo tiene workflows de Actions que analizar.
           - language: actions
             build-mode: none
     steps:
