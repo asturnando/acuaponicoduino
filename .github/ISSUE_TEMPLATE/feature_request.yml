@@ -1,0 +1,59 @@
+name: Feature
+description: Proponer una nueva funcionalidad o mejora.
+title: "[feat] "
+labels: ["enhancement", "needs-triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Antes de proponer una feature grande, revisa `docs/ROADMAP.md`.
+        Si afecta a la arquitectura, abre primero una **ADR** en `docs/adr/`.
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problema que resuelve
+      description: ¿Qué dolor concreto tiene el usuario hoy?
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Propuesta
+      description: Descripción de alto nivel. No hace falta diseño detallado todavía.
+    validations:
+      required: true
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternativas consideradas
+      description: ¿Qué otras opciones valoraste y por qué descartas?
+
+  - type: dropdown
+    id: scope
+    attributes:
+      label: Milestone tentativo
+      options:
+        - M0 — Foundation
+        - M1 — Hardware
+        - M2 — Firmware
+        - M3 — Cloud Backend
+        - M3.5 — Infra
+        - M4 — Frontend
+        - M5 — Diferenciadores
+        - M6 — Lanzamiento
+        - Out of scope (v3+)
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Comprobaciones previas
+      options:
+        - label: No está ya en `docs/ROADMAP.md`
+          required: true
+        - label: He buscado issues similares
+          required: true

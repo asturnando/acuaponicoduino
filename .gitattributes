@@ -1,0 +1,76 @@
+# Auto-detección por defecto, normalización a LF
+* text=auto eol=lf
+
+# Texto explícito
+*.md         text eol=lf
+*.txt        text eol=lf
+*.py         text eol=lf
+*.ts         text eol=lf
+*.tsx        text eol=lf
+*.js         text eol=lf
+*.jsx        text eol=lf
+*.json       text eol=lf
+*.yaml       text eol=lf
+*.yml        text eol=lf
+*.toml       text eol=lf
+*.cfg        text eol=lf
+*.ini        text eol=lf
+*.sh         text eol=lf
+*.fish       text eol=lf
+*.c          text eol=lf
+*.h          text eol=lf
+*.cpp        text eol=lf
+*.hpp        text eol=lf
+*.cmake      text eol=lf
+CMakeLists.txt text eol=lf
+Dockerfile   text eol=lf
+*.env.example text eol=lf
+
+# Scripts Windows-only
+*.bat        text eol=crlf
+*.cmd        text eol=crlf
+*.ps1        text eol=crlf
+
+# Binarios — sin diff de texto
+*.png        binary
+*.jpg        binary
+*.jpeg       binary
+*.gif        binary
+*.ico        binary
+*.webp       binary
+*.pdf        binary
+*.zip        binary
+*.tar.gz     binary
+*.tgz        binary
+*.bin        binary
+*.elf        binary
+
+# Git LFS — artefactos grandes de hardware y media
+*.step       filter=lfs diff=lfs merge=lfs -text
+*.stp        filter=lfs diff=lfs merge=lfs -text
+*.stl        filter=lfs diff=lfs merge=lfs -text
+*.f3d        filter=lfs diff=lfs merge=lfs -text
+*.FCStd      filter=lfs diff=lfs merge=lfs -text
+*.gbr        filter=lfs diff=lfs merge=lfs -text
+*.drl        filter=lfs diff=lfs merge=lfs -text
+*.dxf        filter=lfs diff=lfs merge=lfs -text
+*.brd        filter=lfs diff=lfs merge=lfs -text
+*.kicad_3dshapes filter=lfs diff=lfs merge=lfs -text
+*.mp4        filter=lfs diff=lfs merge=lfs -text
+*.mov        filter=lfs diff=lfs merge=lfs -text
+*.psd        filter=lfs diff=lfs merge=lfs -text
+
+# KiCad — diff legible aunque sea verbose
+*.kicad_pcb  text eol=lf
+*.kicad_sch  text eol=lf
+*.kicad_pro  text eol=lf
+*.kicad_sym  text eol=lf
+*.kicad_mod  text eol=lf
+*.net        text eol=lf
+
+# Linguist — clasificación correcta en GitHub
+firmware/**/build/**       linguist-generated=true
+**/dist/**                 linguist-generated=true
+**/.next/**                linguist-generated=true
+docs/**                    linguist-documentation=true
+hardware/**/*.kicad_pcb    linguist-language=KiCad

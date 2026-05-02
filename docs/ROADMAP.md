@@ -29,23 +29,23 @@
 
 ## Fase 0.1 — Setup del repositorio
 
-- [ ] Decidir licencia (MIT / Apache 2.0 / AGPLv3) y añadir `LICENSE`
-- [ ] Crear repo público en GitHub: `acuaponicoduino`
-- [ ] `git init`, primer commit con README + ARCHITECTURE + ROADMAP
-- [ ] Configurar branch protection en `main` (require PR + 1 review opcional)
-- [ ] Configurar `CODEOWNERS`
-- [ ] `.gitignore` global (Python, Node, KiCad, ESP-IDF, build artifacts, secretos)
-- [ ] `.gitattributes` (LFS para gerbers, .step, imágenes grandes)
-- [ ] `.editorconfig` (indentación, EOL, trim trailing whitespace)
-- [ ] `pre-commit-config.yaml`: ruff, prettier, mypy, eslint, kicad-cli erc/drc
-- [ ] Plantillas de issue (bug, feature, hardware-issue)
-- [ ] Plantilla de PR
-- [ ] `CONTRIBUTING.md` (aunque sea solo para ti, define convenciones)
-- [ ] `SECURITY.md` (proceso de disclosure, aunque básico)
-- [ ] `CODE_OF_CONDUCT.md`
-- [ ] `CHANGELOG.md` (formato Keep a Changelog)
-- [ ] Estructura de monorepo: `firmware/`, `hardware/`, `backend/`, `web/`, `mobile/`, `infra/`, `ai/`, `docs/`, `scripts/`
-- [ ] `README.md` por subdirectorio explicando qué hay dentro
+- [x] Decidir licencia (MIT / Apache 2.0 / AGPLv3) y añadir `LICENSE` → **AGPLv3**
+- [ ] Crear repo público en GitHub: `acuaponicoduino` _(pendiente: ver `ONBOARDING_GITHUB.md`)_
+- [x] `git init`, primer commit con README + ARCHITECTURE + ROADMAP
+- [ ] Configurar branch protection en `main` (require PR + 1 review opcional) _(GitHub UI / `gh` — ver onboarding)_
+- [x] Configurar `CODEOWNERS`
+- [x] `.gitignore` global (Python, Node, KiCad, ESP-IDF, build artifacts, secretos)
+- [x] `.gitattributes` (LFS para gerbers, .step, imágenes grandes)
+- [x] `.editorconfig` (indentación, EOL, trim trailing whitespace)
+- [x] `pre-commit-config.yaml`: ruff, prettier, mypy, eslint, gitleaks, conventional-pre-commit (kicad-cli erc/drc se añadirá en M1 cuando exista PCB)
+- [x] Plantillas de issue (bug, feature, hardware-issue)
+- [x] Plantilla de PR
+- [x] `CONTRIBUTING.md` (aunque sea solo para ti, define convenciones)
+- [x] `SECURITY.md` (proceso de disclosure, aunque básico)
+- [x] `CODE_OF_CONDUCT.md`
+- [x] `CHANGELOG.md` (formato Keep a Changelog)
+- [x] Estructura de monorepo: `firmware/`, `hardware/`, `backend/`, `web/`, `mobile/`, `infra/`, `ai/`, `docs/`, `scripts/`
+- [x] `README.md` por subdirectorio explicando qué hay dentro
 
 ## Fase 0.2 — CI/CD baseline
 

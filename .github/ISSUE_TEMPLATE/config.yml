@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Pregunta de uso o soporte
+    url: https://github.com/asturnando/acuaponicoduino/discussions
+    about: Para preguntas abiertas, mejor abre un Discussion en lugar de un issue.
+  - name: Vulnerabilidad de seguridad
+    url: https://github.com/asturnando/acuaponicoduino/security/policy
+    about: NO uses issues públicos para vulnerabilidades. Sigue el proceso de SECURITY.md.

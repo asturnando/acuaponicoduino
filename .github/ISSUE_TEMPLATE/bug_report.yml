@@ -1,0 +1,90 @@
+name: Bug
+description: Reportar un comportamiento incorrecto en firmware, backend, web, móvil o infra.
+title: "[bug] "
+labels: ["bug", "needs-triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Gracias por el reporte. Cuanta más información, antes se reproduce y se arregla.
+        Para vulnerabilidades de seguridad **no** uses issues — ver `SECURITY.md`.
+
+  - type: dropdown
+    id: component
+    attributes:
+      label: Componente afectado
+      options:
+        - firmware (ESP32-S3)
+        - hardware (PCB / KiCad)
+        - backend (FastAPI)
+        - web (Next.js)
+        - mobile (React Native)
+        - infra / devops
+        - docs
+        - ai (asistente Claude)
+        - otro
+    validations:
+      required: true
+
+  - type: input
+    id: version
+    attributes:
+      label: Versión
+      description: Tag, commit hash o "main@<fecha>"
+      placeholder: e.g. v2.0.0-rc1 o main@2026-05-02
+    validations:
+      required: true
+
+  - type: textarea
+    id: repro
+    attributes:
+      label: Pasos para reproducir
+      description: Lista numerada, lo más específica posible.
+      placeholder: |
+        1. ...
+        2. ...
+        3. ...
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: Comportamiento esperado
+    validations:
+      required: true
+
+  - type: textarea
+    id: actual
+    attributes:
+      label: Comportamiento real
+    validations:
+      required: true
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: Logs / output relevantes
+      description: Pega logs en bloque de código. Censura datos sensibles.
+      render: shell
+
+  - type: textarea
+    id: env
+    attributes:
+      label: Entorno
+      description: Versión de firmware, OS del backend, navegador (web), modelo de móvil, etc.
+      placeholder: |
+        - Firmware: v2.0.0
+        - Backend: 0.5.0 sobre Debian 12
+        - Navegador: Chrome 130
+        - Mobile: Pixel 8 / Android 14
+
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Comprobaciones previas
+      options:
+        - label: He buscado issues similares y no encontré duplicado
+          required: true
+        - label: He revisado `docs/troubleshooting/`
+          required: true

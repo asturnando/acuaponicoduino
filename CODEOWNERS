@@ -1,0 +1,13 @@
+# Cada PR requiere review del owner del path tocado.
+# Mientras seas el único maintainer, todo va a @asturnando.
+# Cuando se incorporen colaboradores, granular por subdirectorio.
+
+* @asturnando
+
+# Áreas críticas — si crece el equipo, exigir doble review aquí
+/docs/ARCHITECTURE.md           @asturnando
+/docs/adr/                      @asturnando
+/hardware/                      @asturnando
+/firmware/components/comms/     @asturnando
+/.github/                       @asturnando
+/infra/                         @asturnando

@@ -1,0 +1,57 @@
+name: Hardware issue
+description: Problemas de PCB, BOM, ensamblaje, sensores, carcasa o errata de bringup.
+title: "[hw] "
+labels: ["hardware", "needs-triage"]
+body:
+  - type: dropdown
+    id: stage
+    attributes:
+      label: Fase
+      options:
+        - Esquemático
+        - Layout PCB
+        - BOM / componentes
+        - Fabricación
+        - Ensamblaje
+        - Bringup / verificación
+        - Carcasa / mecánica
+        - Errata en producción
+    validations:
+      required: true
+
+  - type: input
+    id: pcb_version
+    attributes:
+      label: Versión PCB
+      placeholder: e.g. v0.1, v0.2-rc1
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Descripción del problema
+    validations:
+      required: true
+
+  - type: dropdown
+    id: severity
+    attributes:
+      label: Severidad
+      options:
+        - Blocker — impide funcionamiento, requiere spin
+        - Workaround — funciona con rework documentado
+        - Cosmético — silk, footprint mal alineado, etc.
+    validations:
+      required: true
+
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Evidencia
+      description: Foto, traza de osciloscopio, log de bringup, etc.
+
+  - type: textarea
+    id: proposed_fix
+    attributes:
+      label: Fix propuesto (si lo tienes)

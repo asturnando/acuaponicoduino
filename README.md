@@ -53,4 +53,9 @@ acuaponicoduino/
 
 ## Licencia
 
-Por decidir. Candidatos: MIT (máxima adopción) o AGPLv3 (protección comercial).
+**[GNU AGPLv3](LICENSE)** — preserva la opción de dual-licensing comercial en el futuro. Si en algún momento decides relicenciar a MIT u otra más permisiva, al ser único contribuidor es un cambio trivial. Al revés no se puede.
+
+## Documentos del repositorio
+
+- [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md) · [`docs/ROADMAP.md`](docs/ROADMAP.md) · [`docs/adr/`](docs/adr/)
+- [`CONTRIBUTING.md`](CONTRIBUTING.md) · [`SECURITY.md`](SECURITY.md) · [`CODE_OF_CONDUCT.md`](CODE_OF_CONDUCT.md) · [`CHANGELOG.md`](CHANGELOG.md)
