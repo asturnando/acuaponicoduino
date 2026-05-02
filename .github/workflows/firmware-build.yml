@@ -44,7 +44,7 @@ jobs:
 
       - name: Cache PlatformIO
         if: steps.check.outputs.no_pio != 'true'
-        uses: actions/cache@v4
+        uses: actions/cache@v5
         with:
           path: |
             ~/.cache/pip
