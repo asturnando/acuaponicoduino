@@ -69,7 +69,7 @@ jobs:
 
       - name: Upload firmware artifact
         if: steps.check.outputs.no_pio != 'true'
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: firmware-${{ github.sha }}
           path: |
