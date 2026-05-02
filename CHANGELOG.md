@@ -25,6 +25,15 @@ Versionado siguiendo [Semantic Versioning](https://semver.org/lang/es/).
 - ESP32-S3: variante final **N8R2** (descartado N16R8 por colisión PSRAM octal con GPIO 33-37)
 - Debug: USB-Serial-JTAG nativo sobre USB-C (eliminado header SWD/JTAG dedicado)
 
+### Infrastructure
+- Repo creado en [`asturnando/acuaponicoduino`](https://github.com/asturnando/acuaponicoduino) (público, AGPL-3.0)
+- Branch protection en `main`: PR required, conversation resolution, no force pushes, no deletions
+- Security: secret scanning + push protection + Dependabot alerts + Dependabot security updates + CodeQL (Python, JS/TS, GitHub Actions, queries `security-extended`)
+- GitHub Pages source = workflow (`https://asturnando.github.io/acuaponicoduino/`)
+- Milestones M0..M6 creados (8 milestones con due dates orientativas)
+- Sistema de labels: `component:*` (8), `type:*` (7), `priority:*` (3), `status:*` (3)
+- Settings repo: squash-only merge, delete branch on merge, discussions habilitadas, wiki off
+
 ---
 
 > Este changelog se actualiza con cada PR mergeada. Las entradas en `[Unreleased]` se mueven a una sección versionada al hacer release.

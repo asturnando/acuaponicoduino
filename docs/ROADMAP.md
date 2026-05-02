@@ -30,9 +30,9 @@
 ## Fase 0.1 — Setup del repositorio
 
 - [x] Decidir licencia (MIT / Apache 2.0 / AGPLv3) y añadir `LICENSE` → **AGPLv3**
-- [ ] Crear repo público en GitHub: `acuaponicoduino` _(pendiente: ver `ONBOARDING_GITHUB.md`)_
+- [x] Crear repo público en GitHub: [`asturnando/acuaponicoduino`](https://github.com/asturnando/acuaponicoduino)
 - [x] `git init`, primer commit con README + ARCHITECTURE + ROADMAP
-- [ ] Configurar branch protection en `main` (require PR + 1 review opcional) _(GitHub UI / `gh` — ver onboarding)_
+- [x] Configurar branch protection en `main` (PR required, 0 approvers — solo dev, conversation resolution required, no force pushes, no deletions)
 - [x] Configurar `CODEOWNERS`
 - [x] `.gitignore` global (Python, Node, KiCad, ESP-IDF, build artifacts, secretos)
 - [x] `.gitattributes` (LFS para gerbers, .step, imágenes grandes)
@@ -56,8 +56,8 @@
 - [x] Workflow `docs-deploy.yml` para mkdocs → GitHub Pages
 - [x] Workflow `release.yml` (extrae notas del CHANGELOG, crea GitHub Release)
 - [x] Configurar Dependabot (`dependabot.yml`) para Python, Node, GitHub Actions, Docker
-- [ ] Activar CodeQL (security scanning) _(GitHub UI — `ONBOARDING_GITHUB.md` §4)_
-- [ ] Activar secret scanning + push protection _(GitHub UI — `ONBOARDING_GITHUB.md` §4)_
+- [x] Activar CodeQL (workflow `.github/workflows/codeql.yml` con queries security-extended para Python, JS/TS y GitHub Actions)
+- [x] Activar secret scanning + push protection + Dependabot security updates + vulnerability alerts
 
 ## Fase 0.3 — Documentación viva
 
@@ -69,11 +69,12 @@
 
 ## Fase 0.4 — Project management
 
-- [ ] Crear GitHub Project (board) con vistas: Backlog / In Progress / Review / Done
-- [ ] Importar todas las tareas de este roadmap como issues etiquetadas por milestone
-- [ ] Crear milestones M0..M6 en GitHub
-- [ ] Definir convención de commit messages (Conventional Commits)
-- [ ] Definir convención de branching (`feat/`, `fix/`, `docs/`, `hw/`, `fw/`, etc.)
+- [ ] Crear GitHub Project (board) con vistas: Backlog / In Progress / Review / Done _(GraphQL API — pendiente, no bloqueante)_
+- [ ] Importar todas las tareas de este roadmap como issues etiquetadas por milestone _(decisión: solo abrir issues de tareas activas, no de las 200+ futuras — evita ruido)_
+- [x] Crear milestones M0..M6 en GitHub (8 milestones: M0, M1, M2, M3, M3.5, M4, M5, M6)
+- [x] Crear sistema de labels (component:, type:, priority:, status:)
+- [x] Definir convención de commit messages (Conventional Commits) → en `CONTRIBUTING.md`
+- [x] Definir convención de branching (`feat/`, `fix/`, `docs/`, `hw/`, `fw/`, etc.) → en `CONTRIBUTING.md`
 
 ## Fase 0.5 — Decisiones de arquitectura escritas (ADRs)
 
