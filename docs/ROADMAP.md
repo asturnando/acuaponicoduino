@@ -1,7 +1,7 @@
 # Roadmap — AcuaponicDuino v2.0
 
 > **Checklist exhaustiva.** Cada `- [ ]` es una tarea concreta. Marca `- [x]` al completar. Esta es la fuente de verdad del progreso.
-> Versión: 0.1 — borrador inicial. Última revisión: 2026-05-02.
+> Versión: 0.2 — M0 completo. Última revisión: 2026-05-02.
 
 ---
 
@@ -69,8 +69,8 @@
 
 ## Fase 0.4 — Project management
 
-- [ ] Crear GitHub Project (board) con vistas: Backlog / In Progress / Review / Done _(GraphQL API — pendiente, no bloqueante)_
-- [ ] Importar todas las tareas de este roadmap como issues etiquetadas por milestone _(decisión: solo abrir issues de tareas activas, no de las 200+ futuras — evita ruido)_
+- [x] Crear GitHub Project (board) con vistas: Backlog / In Progress / Review / Done _(proyecto creado y enlazado al repo; columnas Status renombrables desde la UI web: Todo→Backlog, añadir Review)_
+- [x] Importar todas las tareas de este roadmap como issues etiquetadas por milestone _(issues #8–#27: 20 issues de M1 creadas, etiquetadas y añadidas al project board)_
 - [x] Crear milestones M0..M6 en GitHub (8 milestones: M0, M1, M2, M3, M3.5, M4, M5, M6)
 - [x] Crear sistema de labels (component:, type:, priority:, status:)
 - [x] Definir convención de commit messages (Conventional Commits) → en `CONTRIBUTING.md`
